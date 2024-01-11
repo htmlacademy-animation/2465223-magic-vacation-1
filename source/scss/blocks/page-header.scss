@@ -38,7 +38,7 @@
   opacity: 0;
   transform: translateX(-10%);
   transition: all 0.5s;
-  transition-timing-function: cubic-bezier(.47,.11,.12,.94);
+  transition-timing-function: $screen-loaded-timing-function;
   transition-delay: 0.3s;
 
   .screen-loaded & {
@@ -143,7 +143,7 @@
   opacity: 0;
   transition: all 0.5s;
   transition-delay: 0.6s;
-  transition-timing-function: cubic-bezier(.47,.11,.12,.94);
+  transition-timing-function: $screen-loaded-timing-function;
 
   .screen-loaded & {
     opacity: 1;
@@ -290,7 +290,7 @@
         transform: scaleX(0);
         transition: transform 0.9s;
         transition-delay: 0.6s;
-        transition-timing-function: cubic-bezier(.47,.11,.12,.94);
+        transition-timing-function: $screen-loaded-timing-function;
         transform-origin: -1%;
 
         .screen-loaded & {
