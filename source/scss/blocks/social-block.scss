@@ -40,7 +40,7 @@
     transition: transform 0.6s;
     transition-delay: 0.9s;
     transform-origin: 0 0;
-    transition-timing-function: cubic-bezier(.4,.49,0,1.77);
+    transition-timing-function: $over-expand-timing-function;
 
     .screen-loaded & {
       transform: scale(1) translate(-50%, -50%);
