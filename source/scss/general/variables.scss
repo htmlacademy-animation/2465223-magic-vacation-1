@@ -22,3 +22,6 @@ $index: 1.38871;
 
 $screen-loaded-timing-function: cubic-bezier(.47,.11,.12,.94);
 $over-expand-timing-function: cubic-bezier(.4,.49,0,1.77);
+
+$animation-durations: ("fast": 0.2s, "medium": 0.4s, "slow": 0.6s, "delayed": 1.2s, "extraSlow": 2s, "slowest": 2.8s);
+
