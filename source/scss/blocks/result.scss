@@ -1,3 +1,5 @@
+@use "sass:map";
+
 .result {
   flex-grow: 1;
   display: flex;
@@ -47,6 +49,7 @@
 
   img {
     display: block;
+    position: absolute;
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -211,10 +214,143 @@
 
 .result__form {
   margin-top: auto;
+
+  .field-wrapper {
+    position: relative;
+    margin-right: 1.5em;
+    padding: 0;
+
+    @media (max-width: $mobile) {
+      margin-right: 1rem;
+    }
+  }
+
+  input.form__field {
+    width: 100%;
+    transform-origin: 97%;
+    animation: expandWidth map.get($animation-durations, "slow");
+    animation-delay: map.get($animation-durations, "delayed");
+    animation-fill-mode: both;
+    animation-timing-function: ease-out;
+
+    @media (max-width: $mobile) {
+      transform-origin: 92%;
+    }
+  }
+
+  .field-border {
+    position: absolute;
+    height: 6rem;
+    width: 68px;
+    top: 0;
+    right: 0;
+    background: white;
+    z-index: -1;
+    font-size: 2.4em;
+    border-radius: 3rem;
+    animation: fadeIn;
+    animation-delay: map.get($animation-durations, "delayed");
+    animation-fill-mode: both;
+
+    @media (max-width: $mobile) {
+      height: 4rem;
+      width: 100px;
+    }
+
+  }
+
+  .field-cover {
+    position: absolute;
+    height: 6rem;
+    background: white;
+    width: 92%;
+    left: 5%;
+    top: 0;
+
+    transform-origin: 100%;
+    animation: expandWidth map.get($animation-durations, "slow") map.get($animation-durations, "delayed"), fadeOut map.get($animation-durations, "medium") map.get($animation-durations, "slowest"); 
+    animation-fill-mode: both;
+    animation-timing-function: ease-out;
+
+    @media (max-width: $mobile) {
+      height: 4rem;
+      left: 2.5rem;
+      width: 80%;
+    }
+  }
+
+  button{
+    animation: fadeInColor map.get($animation-durations, "slow");
+    animation-delay: map.get($animation-durations, "extraSlow");
+    animation-fill-mode: both;
+
+    &::before {
+      animation: fadeIn map.get($animation-durations, "delayed");
+      animation-delay: map.get($animation-durations, "slow");
+      animation-fill-mode: both;
+    }
+  }
 }
 
 .result--trip,
 .result--prize {
+  
+  .result__image {
+    img {
+      width: unset;
+      height: unset;
+    }
+
+    .flamingo {
+      transform: translate3d(-30%, 20%, 0);
+      width: 200px;
+      z-index: 2;
+      animation: slideUpFlamingo map.get($animation-durations, "delayed");
+      animation-fill-mode: both;
+      animation-timing-function: $over-expand-timing-function;
+    }
+
+    .flamingo-wrapper {
+      transform-origin: -1%;
+      width: 200px;
+      height: 200px;
+      z-index: 2;
+      animation: flamingoSpin 1s ease 0s infinite alternate;
+    }
+
+    .suitcase {
+      width: 300px;
+      animation: slideUpSuitcase map.get($animation-durations, "delayed");
+      animation-fill-mode: both;
+      animation-timing-function: $over-expand-timing-function;
+    }
+
+    .leaf-blue-1 {
+      transform: rotate(0deg) translate3d(50%, -10%, 0);
+      width: 250px;
+      animation: fadeInLeaf-1 map.get($animation-durations, "slowest");
+      animation-fill-mode: both;
+      animation-timing-function: ease;
+    }
+
+    .leaf-blue-2 {
+      transform: rotate(0deg) translate3d(-70%, 30%, 0);
+      width: 250px;
+      animation: fadeInLeaf-2 map.get($animation-durations, "slowest");
+      animation-fill-mode: both;
+      animation-timing-function: ease;
+    }
+
+    .leaf-green {
+      transform: translate3d(65%, 30%, 0);
+      width: 250px;
+      animation: fadeInLeaf-green map.get($animation-durations, "slowest");
+      animation-fill-mode: both;
+      animation-timing-function: ease;
+      animation-delay: map.get($animation-durations, "fast");
+    }
+  }
+
   .result__title {
     width: 57.3rem;
     height: 11.3rem;

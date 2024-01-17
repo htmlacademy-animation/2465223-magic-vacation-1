@@ -399,10 +399,13 @@
       <div class="screen__wrapper">
         <div class="result result--prize">
           <div class="result__image">
-            <picture>
-              <source srcset="img/result2-mob.png 1x, img/result2-mob@2x.png 2x" media="(max-width: 768px) and (orientation: portrait)">
-              <img src="img/result2.png" srcset="img/result2@2x.png 2x" alt="">
-            </picture>
+            <div class="flamingo-wrapper">
+              <img class="flamingo"  src="img/module-2/win-suitcase/flamingo.png" alt="">
+            </div>
+            <img class="leaf-blue-1" src="img/module-2/win-suitcase/leaf blue 1.png" alt="">
+            <img class="leaf-blue-2" src="img/module-2/win-suitcase/leaf blue 2.png" alt="">
+            <img class="leaf-green" src="img/module-2/win-suitcase/leaf green.png" alt="">
+            <img class="suitcase" src="img/module-2/win-suitcase/suitcase.png" alt="">
           </div>
           <h2 class="result__title">
             <span class="visually-hidden">ПОбеда!</span>
@@ -433,7 +436,11 @@
           <div class="result__form">
             <form action="#" method="post" class="form form--result">
               <label for="email-field2" class="form__label">зарегистрируй результат</label>
-              <input type="email" class="form__field" id="email-field2" placeholder="e-mail для регистации результата и получения приза" required>
+                <div class="field-wrapper form__field">
+                  <input type="email" class="form__field" id="email-field2" placeholder="e-mail для регистации результата и получения приза" required>
+                  <div class="field-border"></div>
+                  <div class="field-cover"></div>
+                </div>
               <button class="form__button btn">
                 отправить
                 <svg width="18" height="19" viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg">
