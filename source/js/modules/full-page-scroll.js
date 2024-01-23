@@ -63,6 +63,7 @@ export default class FullPageScroll {
   }
 
   changeActiveMenuItem() {
+    document.body.classList.remove(`story-screen-changed`);
     const activeItem = Array.from(this.menuElements).find((item) => item.dataset.href === this.screenElements[this.activeScreen].id);
     if (activeItem) {
       this.menuElements.forEach((item) => item.classList.remove(`active`));
