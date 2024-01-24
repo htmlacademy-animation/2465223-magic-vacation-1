@@ -313,6 +313,14 @@
         display: block;
         background-color: $c-purple;
       }
+
+      .story-screen-changed & {
+        color: $c-blue;
+  
+        &::after {
+          background-color: $c-blue;
+        }
+      }
     }
   }
 }

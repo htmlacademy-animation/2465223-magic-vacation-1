@@ -17,6 +17,8 @@ export default () => {
         },
         on: {
           slideChange: () => {
+            const event = new CustomEvent(`slideChanged`, {bubbles: true});
+            sliderContainer.dispatchEvent(event);
             if (storySlider.activeIndex === 0 || storySlider.activeIndex === 1) {
               sliderContainer.style.backgroundImage = `url("img/slide1.jpg"), linear-gradient(180deg, rgba(83, 65, 118, 0) 0%, #523E75 16.85%)`;
             } else if (storySlider.activeIndex === 2 || storySlider.activeIndex === 3) {
@@ -51,6 +53,8 @@ export default () => {
         },
         on: {
           slideChange: () => {
+            const event = new CustomEvent(`slideChanged`, {bubbles: true});
+            sliderContainer.dispatchEvent(event);
             if (storySlider.activeIndex === 0) {
               sliderContainer.style.backgroundImage = `url("img/slide1.jpg")`;
             } else if (storySlider.activeIndex === 2) {
@@ -79,4 +83,6 @@ export default () => {
   });
 
   setSlider();
+  window.addEventListener(`slideChanged`, () => document.body.classList.add(`story-screen-changed`));
+
 };

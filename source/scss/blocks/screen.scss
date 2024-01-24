@@ -1,3 +1,5 @@
+@use "sass:map";
+
 .screen {
   position: relative;
   display: flex;
@@ -46,40 +48,70 @@
   color: $c-dark;
   background-color: $c-light;
   z-index: 1;
-  transition: transform 0.3s;
-  transition-timing-function: $screen-loaded-timing-function;
   transform: translateY(100%);
-  transition-delay: 0.3s;
 
-  .screen-loaded & {
-    transform: translateY(0);
+  .active & {
+    animation: footerSlideIn 1s;
+    animation-fill-mode: both;
   }
 
-  @media (max-width: $tablet) and (orientation: portrait) {
-    width: 3.5rem;
-    height: 3.5rem;
+  .screen-loaded & {
+    animation: footerSlideIn 1s;
+    animation-fill-mode: both;
+  }
+
+  &::after {
+    animation: mobileFooterCollapse 1s;
+    animation-fill-mode: both;
+    
     border-radius: 0 3.6rem 0 0;
+    width: 100%;
+    height: 18rem;
+    content: "";
+    display: none;
+    position: absolute;
+    background: white;
+    bottom: 0;
+  }
 
     &.screen__footer--full {
-      width: 100%;
-      height: 18rem;
+      &::after {
+        animation: mobileFooterExpand map.get($animation-durations, "delayed");
+        animation-fill-mode: both;
+        transform-origin: bottom left;
+      }
+    }
+
+  @media (max-width: $tablet) and (orientation: portrait) {
+    border-radius: 0 3.6rem 0 0;
+    width: 100%;
+    height: 18rem;
+    background: transparent;
+
+    &::after {
+      display: block;
     }
   }
 
   @media (max-width: $mobile) and (orientation: landscape) {
-    width: 3.5rem;
-    height: 3.5rem;
-    border-radius: 0 3.6rem 0 0;
-
-    &.screen__footer--full {
-      width: 100%;
-      height: 16rem;
+    width: 100%;
+    height: 16rem;
+  
+    &::after {
+      display: block;
     }
   }
 }
 
 .screen__footer-wrapper {
   @include container;
+  position: relative;
+  z-index: 1;
+
+  .screen__footer--full & {
+    animation: fadeIn map.get($animation-durations, "delayed") map.get($animation-durations, "delayed");
+    animation-fill-mode: both;
+  }
 
   @media (max-width: $tablet) and (orientation: portrait) {
     opacity: 0;
@@ -107,7 +139,7 @@
   width: 4rem;
   height: 4rem;
   color: $c-dark;
-  z-index: 1;
+  z-index: 2;
 
   @media (max-width: $tablet) and (orientation: portrait) {
     display: block;
@@ -146,7 +178,7 @@
   width: 4rem;
   height: 4rem;
   color: $c-dark;
-  z-index: 1;
+  z-index: 2;
 
   @media (max-width: $tablet) and (orientation: portrait) {
     display: block;
@@ -213,6 +245,12 @@
   text-align: center;
   font-size: 1.2rem;
   line-height: 1.2;
+  opacity: 0;
+
+  .active & {
+    animation: fadeIn map.get($animation-durations, "delayed");
+    animation-fill-mode: both;
+  }
 
   @media (min-width: $stop-scaling) {
     padding: 8px 0;

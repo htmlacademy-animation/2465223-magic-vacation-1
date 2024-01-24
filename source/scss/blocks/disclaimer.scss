@@ -22,6 +22,12 @@
     text-transform: uppercase;
     font-size: 1.2rem;
     line-height: 1.2;
+    opacity: 0;
+
+    .active & {
+      animation: fadeIn 1s;
+      animation-fill-mode: both;
+    }
 
     @media (min-width: $stop-scaling) {
       font-size: 12px;

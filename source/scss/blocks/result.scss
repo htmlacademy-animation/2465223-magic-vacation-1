@@ -377,6 +377,18 @@
 }
 
 .result--negative {
+  .result__button {
+    animation: fadeIn map.get($animation-durations, "slow");
+    animation-delay: map.get($animation-durations, "delayed");
+    animation-fill-mode: both;
+
+    span {
+      animation: resultButtonRoll map.get($animation-durations, "delayed");
+      animation-delay: map.get($animation-durations, "delayed");
+      animation-fill-mode: both;
+    }
+  }
+
   .result__title {
     margin-top: 9.5rem;
     width: 66.5rem;

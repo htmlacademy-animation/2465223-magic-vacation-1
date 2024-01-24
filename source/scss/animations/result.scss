@@ -115,3 +115,13 @@
       transform: rotate(15deg) translate3d(-70%, 30%, 0);
     }
   }
+
+
+@keyframes resultButtonRoll {
+  from {
+    transform: translateX(60%) rotate(180deg);
+  }
+  to {
+    transform: translateX(0) rotate(0);
+  }
+}

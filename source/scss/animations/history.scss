@@ -1,0 +1,21 @@
+@keyframes sliderControlRollLeft {
+    from {
+      transform: translateX(-60%) rotate(-180deg);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0) rotate(0deg);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes sliderControlRollRight {
+    from {
+      transform: translateX(60%) rotate(180deg);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0) rotate(0deg);
+      opacity: 1;
+    }
+  }
